@@ -22,6 +22,28 @@ export class ProductServices{
         if(!product){
             throw new NotFoundException('Not found product');
         }
-        return {...product};
+       
+        return {product};
+    }
+    updateProduct(productId:string,title:string,desc:string,price:number){
+        const product = this.products.find((prod)=>prod.id===productId)
+        console.log(product)
+        const prodIndex=this.products.findIndex((prod)=>prod.id===productId)
+        const updateProduct={...product}
+        console.log(updateProduct)
+        if(!product){
+            throw new NotFoundException('Not found product');
+        }
+                if(title){
+                    updateProduct.title=title;
+                }
+                if(desc){
+                    updateProduct.desc=desc;
+                }
+                if(price){
+                    updateProduct.price=price;
+                }
+   
+        this.products[prodIndex]=updateProduct;
     }
 }
