@@ -33,5 +33,6 @@ export class ProductController{
         @Body('price') prodPrice: number){
             return this.productService.updateProduct(prodId,prodTitle,prodDesc,prodPrice)
         }
+        
 
 } 
